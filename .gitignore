@@ -1,0 +1,47 @@
+.svn/
+.idea/
+.gradle/
+.settings/
+.project
+.classpath
+target/
+out/
+bin/
+build/
+*.iml
+*.ipr
+*.class
+atlassian-ide-plugin.xml
+jars/
+nbactions.xml
+deploy-pom.xml
+dependency-reduced-pom.xml
+tmp/
+
+# SBT
+boot/
+lib_managed/
+src_managed/
+test-output/
+.history
+
+# IntelliJ
+*.iws
+
+# Eclipse
+.cache
+.scala_dependencies
+.settings
+.target/
+
+# Mac
+.DS_Store
+
+# Other
+*.pyc
+home/been/myApp.log
+
+/.metadata/
+/RemoteSystemsTempFiles/
+Dockerfile
+prod_config/
