@@ -1,5 +1,5 @@
 {
-  "name": "discuss-admin-front",
+  "name": "discuss-client",
   "version": "0.0.1",
   "main": "index.js",
   "repository": "https://github.com/light-discuss/light-discuss.git",
