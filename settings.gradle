@@ -1,4 +1,4 @@
 rootProject.name = 'lightdiscuss'
 
-include 'discuss-server','discuss-admin','discuss-common','discuss-webplugins'
+include 'discuss-server','discuss-admin','discuss-common'
 
