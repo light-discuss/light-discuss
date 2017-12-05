@@ -41,3 +41,23 @@ dependencies {
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile("org.springframework.boot:spring-boot-starter-web")
 }
+
+
+project("discuss-admin") {
+
+    dependencies {
+
+    }
+}
+project("discuss-common") {
+
+    dependencies {
+
+    }
+}
+project("discuss-server") {
+
+    dependencies {
+
+    }
+}

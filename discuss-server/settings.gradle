@@ -1,0 +1,4 @@
+rootProject.name = 'lightdiscuss'
+
+include 'discuss-api','discuss-model','discuss-dervice'
+
