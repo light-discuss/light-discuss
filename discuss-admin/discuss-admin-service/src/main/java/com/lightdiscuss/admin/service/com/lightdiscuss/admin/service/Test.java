@@ -1,4 +1,4 @@
-package com.lightdiscuss.admin.service;
+package com.lightdiscuss.admin.service.com.lightdiscuss.admin.service;
 
 /**
  * @author: kevin
