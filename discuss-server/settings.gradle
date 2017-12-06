@@ -1,4 +1,6 @@
-rootProject.name = 'lightdiscuss'
+rootProject.name = 'lightdiscuss-server'
 
-include 'discuss-api','discuss-service'
+include 'discuss-api'
+include 'discuss-client'
+include 'discuss-service'
 

@@ -1,4 +1,5 @@
-rootProject.name = 'lightdiscuss'
+rootProject.name = 'lightdiscuss-common'
 
-include 'discuss-common-utils','discuss-common-model'
+include 'discuss-common-utils'
+include 'discuss-common-model'
 
