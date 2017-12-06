@@ -1,0 +1,3 @@
+version '${rootProject.version}'
+
+apply plugin: 'java'
