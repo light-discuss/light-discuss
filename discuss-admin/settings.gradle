@@ -1,4 +1,0 @@
-rootProject.name = 'lightdiscuss'
-
-include 'discuss-admin-service','discuss-adming-web'
-

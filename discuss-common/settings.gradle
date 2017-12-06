@@ -1,4 +1,0 @@
-rootProject.name = 'lightdiscuss'
-
-include 'discuss-common-utils','discuss-common-model'
-

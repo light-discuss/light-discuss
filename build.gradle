@@ -1,63 +1,46 @@
-group 'com.lightdiscuss'
-version '1.0-SNAPSHOT'
-
-
 buildscript {
+    ext { springBootVersion = '2.0.0.M1' }
     repositories {
-        jcenter()
-        maven { url 'http://repo.spring.io/snapshot' }
-        maven { url 'http://repo.spring.io/milestone' }
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
     }
+    dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'io.spring.dependency-management'
+
+    group = 'com.lightdiscuss'
+    version = '1.0-SNAPSHOT'
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+}
+
+configure(subprojects.findAll { !it.name.contains('discuss-common')}) {
     dependencies {
-        classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.0.BUILD-SNAPSHOT'
+        compile('org.springframework.boot:spring-boot-starter')
+        compile('org.springframework.boot:spring-boot-starter-actuator')
+        compile('org.springframework.boot:spring-boot-starter-webflux') {
+            exclude module: 'spring-boot-starter-tomcat'
+        }
+        compile project(':discuss-common:discuss-common-utils')
+        testCompile('org.springframework.boot:spring-boot-starter-test')
     }
-}
 
-apply plugin: 'java'
-apply plugin: 'maven'
-apply plugin: 'idea'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
-
-jar {
-    baseName = 'lightdiscuss'
-    version =  '1.0-SNAPSHOT'
-}
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
-}
-
-repositories {
-    jcenter()
-    maven { url "http://repo.spring.io/snapshot" }
-    maven { url "http://repo.spring.io/milestone" }
-}
-
-dependencies {
-    testCompile("org.springframework.boot:spring-boot-starter-test")
-    compile("org.springframework.boot:spring-boot-starter-web")
-}
-
-
-project("discuss-admin") {
-
-    dependencies {
-
+    dependencyManagement {
+        imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
     }
+
 }
-project("discuss-common") {
 
-    dependencies {
-
-    }
-}
-project("discuss-server") {
-
-    dependencies {
-
-    }
+configure(subprojects.findAll { it.name.contains('deploy')}) {
+    apply plugin: 'org.springframework.boot'
 }
