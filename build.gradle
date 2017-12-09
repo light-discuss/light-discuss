@@ -1,13 +1,9 @@
 buildscript {
     ext {
         springBootVersion = '2.0.0.M1'
-        hibernateJpaVersion = '1.0.0.Final'
         commonsLang3Version = '3.1'
-        commonsPoolVersion = '2.4.2'
         derbyVersion = '10.13.1.1'
         commonsDbcpVersion = '2.1.1'
-        hibernateCoreVersion = '5.2.10.Final'
-        springAopVersion = '2.0.0.M1'
     }
 
     repositories {
