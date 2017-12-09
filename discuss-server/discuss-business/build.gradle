@@ -1,0 +1,6 @@
+dependencies {
+    compile("org.apache.derby:derby:${derbyVersion}")
+    compile("org.apache.commons:commons-dbcp2:${commonsDbcpVersion}")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-starter-aop")
+}

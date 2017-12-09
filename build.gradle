@@ -1,6 +1,17 @@
 buildscript {
-    ext { springBootVersion = '2.0.0.M1' }
+    ext {
+        springBootVersion = '2.0.0.M1'
+        hibernateJpaVersion = '1.0.0.Final'
+        commonsLang3Version = '3.1'
+        commonsPoolVersion = '2.4.2'
+        derbyVersion = '10.13.1.1'
+        commonsDbcpVersion = '2.1.1'
+        hibernateCoreVersion = '5.2.10.Final'
+        springAopVersion = '2.0.0.M1'
+    }
+
     repositories {
+        mavenLocal()
         mavenCentral()
         maven { url "https://repo.spring.io/snapshot" }
         maven { url "https://repo.spring.io/milestone" }
@@ -10,22 +21,27 @@ buildscript {
     dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") }
 }
 
+
 subprojects {
     apply plugin: 'java'
     apply plugin: 'eclipse'
+    apply plugin: 'idea'
     apply plugin: 'io.spring.dependency-management'
 
     group = 'com.lightdiscuss'
     version = '1.0-SNAPSHOT'
     sourceCompatibility = 1.8
+    targetCompatibility = 1.8
 
     repositories {
+        mavenLocal()
         mavenCentral()
         maven { url "https://repo.spring.io/snapshot" }
         maven { url "https://repo.spring.io/milestone" }
         maven { url "https://repo.spring.io/libs-release"}
     }
 }
+
 
 configure(subprojects.findAll { !it.name.contains('discuss-common')}) {
     dependencies {
@@ -35,8 +51,8 @@ configure(subprojects.findAll { !it.name.contains('discuss-common')}) {
             exclude module: 'spring-boot-starter-tomcat'
         }
         compile project(':discuss-common:discuss-common-utils')
-        compile ('org.springframework.data:spring-data-jpa:2.0.2.RELEASE')
         testCompile('org.springframework.boot:spring-boot-starter-test')
+        compile("org.apache.commons:commons-lang3:${commonsLang3Version}")
     }
 
     dependencyManagement {
@@ -44,6 +60,16 @@ configure(subprojects.findAll { !it.name.contains('discuss-common')}) {
     }
 
 }
+
+/*configure(project(":discuss-server:discuss-business")){
+    dependencies {
+        compile('org.apache.derby:derby:${derbyVersion}')
+        compile('org.springframework.data:spring-data-jpa:${springDataJpaVersion}')
+        compile('org.hibernate.javax.persistence:hibernate-jpa-2.0-api:${hibernateJpaVersion}')
+        compile('org.apache.commons:commons-pool2:${commonsPoolVersion}')
+        compile('org.apache.commons:commons-dbcp2:${commonsDbcpVersion}')
+    }
+}*/
 
 configure(subprojects.findAll { it.name.contains('deploy')}) {
     apply plugin: 'org.springframework.boot'

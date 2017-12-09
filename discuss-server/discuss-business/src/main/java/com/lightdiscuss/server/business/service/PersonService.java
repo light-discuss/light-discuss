@@ -1,8 +1,8 @@
 package com.lightdiscuss.server.business.service;
 
 import com.lightdiscuss.common.model.Person;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
+
+import java.util.List;
 
 /**
  * @author: kevin
@@ -12,12 +12,16 @@ import reactor.core.publisher.Mono;
 public interface PersonService {
 
 
-    Mono<Person> getPerson(int id);
+   /* Mono<Person> getPerson(int id);
 
 
     Flux<Person> allPeople();
 
-    Mono<Void> savePerson(Mono<Person> person);
+    Mono<Void> savePerson(Mono<Person> person);*/
+
+    List<Person> allPeople();
+
+    int savePerson(Person person);
 
 
 }
