@@ -4,6 +4,7 @@ buildscript {
         commonsLang3Version = '3.1'
         derbyVersion = '10.13.1.1'
         commonsDbcpVersion = '2.1.1'
+        hibernateJpaVersion = '1.0.0.Final'
     }
 
     repositories {
