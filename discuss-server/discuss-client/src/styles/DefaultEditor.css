@@ -1,0 +1,89 @@
+.DefaultEditor {
+    padding: 8px 16px;
+    transition: all 1s;
+}
+
+.DefaultEditor .EditorHeader {
+    color: #555555;
+    font-size: 14px;
+    margin-left: 48px;
+    padding: 8px 0;
+}
+
+.DefaultEditor .EditorBody .InputContainer-Nickname {
+    display: none;
+    align-items: center;
+    padding: 8px 0;
+    transition: all .3s;
+}
+
+.DefaultEditor .EditorBody.focused .InputContainer-Nickname {
+    display: flex;
+}
+
+.DefaultEditor .EditorBody .InputContainer-Nickname label {
+    width: 48px;
+}
+
+.DefaultEditor .EditorBody .InputContainer-Nickname input {
+    width: 180px;
+}
+
+.DefaultEditor .EditorBody .InputContainer-Nickname .Info {
+    margin-left: 16px;
+    color: #ff3357;
+}
+
+.DefaultEditor .EditorBody .InputContainer-Content {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.DefaultEditor .EditorBody .InputContainer-Content label {
+    width: 48px;
+}
+
+.DefaultEditor .EditorBody .InputContainer-Content label span {
+    display: none;
+}
+
+.DefaultEditor .EditorBody.focused .InputContainer-Content label span {
+    display: block;
+}
+
+.DefaultEditor .EditorBody .InputContainer-Content label img {
+    display: block;
+}
+
+.DefaultEditor .EditorBody.focused .InputContainer-Content label img {
+    display: none;
+}
+
+.DefaultEditor .EditorBody .InputContainer-Content textarea {
+    flex: 1;
+    resize: none;
+    height: 4em;
+    outline: none;
+    transition: all .3s;
+}
+
+.DefaultEditor .EditorBody.focused .InputContainer-Content textarea {
+    height: 6em;
+}
+
+.DefaultEditor .EditorBody .ButtonGroup  {
+    display: none;
+    align-self: flex-end;
+    margin-left: 48px;
+    padding: 8px 0;
+}
+
+.DefaultEditor .EditorBody.focused .ButtonGroup {
+    display: flex;
+}
+
+.DefaultEditor .EditorBody .ButtonGroup button {
+    margin-left: 16px;
+    padding: 6px 18px;
+}

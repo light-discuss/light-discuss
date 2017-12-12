@@ -9,9 +9,11 @@ class MainLayout extends React.Component {
     render() {
         return (
             <div className="MainLayout">
-                <Header/>
-                <DefaultEditor/>
-                <CommentList/>
+                <div className="Container">
+                    <Header/>
+                    <DefaultEditor/>
+                    <CommentList/>
+                </div>
             </div>
         );
     }

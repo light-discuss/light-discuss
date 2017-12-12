@@ -1,0 +1,11 @@
+.MainLayout {
+    display: flex;
+    justify-content: center;
+}
+
+.MainLayout > .Container {
+    max-width: 960px;
+    min-width: 320px;
+    flex-grow: 1;
+    flex-shrink: 0
+}
