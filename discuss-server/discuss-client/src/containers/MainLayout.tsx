@@ -11,7 +11,9 @@ class MainLayout extends React.Component {
             <div className="MainLayout">
                 <div className="Container">
                     <Header/>
-                    <DefaultEditor/>
+                    <div className="OriginEditor">
+                        <DefaultEditor isFirstComment={true}/>                    
+                    </div>
                     <CommentList/>
                 </div>
             </div>

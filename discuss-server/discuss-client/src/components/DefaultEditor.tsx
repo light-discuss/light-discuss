@@ -3,24 +3,39 @@ import '../styles/DefaultEditor.css';
 
 import * as classNames from 'classnames';
 
+const TiPencil = require('react-icons/lib/ti/pencil');
 const avatar = require('../assets/avatar.svg');
 
-class DefaultEditor extends React.Component {
+interface DefaultEditorProp {
+    isFirstComment?: boolean;
+    isReplyEditor?: boolean;
+    onClose?: () => void;
+}
+
+class DefaultEditor extends React.Component<DefaultEditorProp, {}> {
     state = {
         isFirstComment: true,
         focused: false
     };
 
     render() {
+        const { isFirstComment, isReplyEditor } = this.props;
+        const focused = this.state.focused || isReplyEditor;
+
         return (
             <div className="DefaultEditor">
                 {
                     this.state.isFirstComment &&
                         <div className="EditorHeader">
-                            <span>快来坐沙发吧...</span>
+                        {
+                            isFirstComment && <span>快来坐沙发吧...</span>
+                        }
+                        {
+                            isReplyEditor && <span><TiPencil/>添加新评论</span>
+                        }   
                         </div>
                 }
-                <div className={classNames('pure-form', 'EditorBody', {focused: this.state.focused})}>
+                <div className={classNames('pure-form', 'EditorBody', {focused: focused})}>
                     <div className="InputContainer-Nickname">
                         <label htmlFor="nickname">昵称</label>
                         <input
@@ -47,8 +62,8 @@ class DefaultEditor extends React.Component {
                     </div>
                     <div className="ButtonGroup">
                         <div className="FlexSpace"/>
-                        <button className="pure-button" onClick={this.handleEditCancel}>取消</button>
-                        <button className="pure-button">确定</button>
+                        <button className="pure-button button-opacity" onClick={this.handleEditCancel}>取消</button>
+                        <button className="pure-button button-success">确定</button>
                     </div>
 
                 </div>
@@ -63,9 +78,17 @@ class DefaultEditor extends React.Component {
     }
 
     handleEditCancel = () => {
-        this.setState({
-            focused: false
-        });
+        const { isReplyEditor, onClose } = this.props;
+
+        if (isReplyEditor) {
+            if (onClose != null) {
+                onClose();
+            }
+        } else {
+            this.setState({
+                focused: false
+            });
+        }
     }
 }
 

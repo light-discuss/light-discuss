@@ -1,0 +1,57 @@
+.CommentItem {
+    margin: 16px 0;
+}
+
+.CommentItem .CommentInfo {
+    display: flex;
+    align-items: center;
+}
+
+.CommentItem .CommentInfo .Avatar {
+    width: 48px;
+}
+
+.CommentItem .CommentInfo .UserNickname {
+    font-size: 16px;
+    color: #222222;
+}
+
+.CommentItem .CommentInfo .Details {
+    font-size: 12px;
+    color: #555555;
+}
+
+.CommentItem .CommentInfo .Details span {
+    margin-right: 8px;
+}
+
+.CommentItem .Container-Main {
+    margin-left: 48px;
+}
+
+.CommentItem .CommentContent p {
+    padding: 4px 0;
+    margin: 8px 0;
+}
+
+.CommentItem .Operations {
+    display: flex;
+}
+
+.CommentItem .Operations a {
+    color: #555555;
+    font-size: 13px;
+    text-decoration: none;
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.CommentItem .Operations a:hover {
+    color: #000000;
+}
+
+.CommentItem .Operations a svg {
+    margin-right: 4px;
+    font-size: 14px;
+}

@@ -9,3 +9,7 @@
     flex-grow: 1;
     flex-shrink: 0
 }
+
+.MainLayout .OriginEditor {
+    padding: 8px 16px;
+}

@@ -1,13 +1,53 @@
 body {
-  font-size: 14px;
-  color: #333333;
-  font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+    font-size: 14px;
+    color: #333333;
+    font-family: -apple-system, SF UI Text, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
 }
 
 .FlexSpace {
-  flex-grow: 1;
+    flex-grow: 1;
 }
 
 .bold {
-  font-weight: bold;
+    font-weight: bold;
+}
+
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-warning {
+    background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221); /* this is a light blue */
+}
+
+.button-opacity {
+    background: transparent;
+    color: #555555;
+}
+
+.button-opacity:hover {
+    background: transparent;
+    color: #000000;
+}
+
+.button-opacity:active {
+    background: transparent;
+    box-shadow: none;
 }

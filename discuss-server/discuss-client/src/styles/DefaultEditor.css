@@ -1,5 +1,4 @@
 .DefaultEditor {
-    padding: 8px 16px;
     transition: all 1s;
 }
 
@@ -8,6 +7,15 @@
     font-size: 14px;
     margin-left: 48px;
     padding: 8px 0;
+}
+
+.DefaultEditor .EditorHeader span {
+    display: flex;
+    align-items: center;
+}
+
+.DefaultEditor .EditorHeader span svg {
+    margin-right: 4px;
 }
 
 .DefaultEditor .EditorBody .InputContainer-Nickname {
