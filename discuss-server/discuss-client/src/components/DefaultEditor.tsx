@@ -6,13 +6,18 @@ import * as classNames from 'classnames';
 const TiPencil = require('react-icons/lib/ti/pencil');
 const avatar = require('../assets/avatar.svg');
 
-interface DefaultEditorProp {
+export interface DefaultEditorProp {
     isFirstComment?: boolean;
     isReplyEditor?: boolean;
     onClose?: () => void;
 }
 
-class DefaultEditor extends React.Component<DefaultEditorProp, {}> {
+type State = {
+    isFirstComment: boolean,
+    focused: boolean
+};
+
+class DefaultEditor extends React.Component<DefaultEditorProp, State> {
     state = {
         isFirstComment: true,
         focused: false

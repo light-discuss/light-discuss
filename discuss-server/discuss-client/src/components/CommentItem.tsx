@@ -5,12 +5,12 @@ const avatar = require('../assets/avatar.svg');
 const FaThumbsOUp = require('react-icons/lib/fa/thumbs-o-up');
 const FaCommentO = require('react-icons/lib/fa/comment-o');
 
-interface CommentItemProp {
+interface CommentItemProps {
     children?: JSX.Element[];
     isReplyComment?: boolean;
 }
 
-class CommentItem extends React.Component<CommentItemProp, {}> {
+class CommentItem extends React.Component<CommentItemProps, {}> {
     render() {
         const { isReplyComment } = this.props;
 
