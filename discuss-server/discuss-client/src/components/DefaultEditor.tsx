@@ -1,7 +1,6 @@
 import * as React from 'react';
-import '../styles/DefaultEditor.css';
-
 import * as classNames from 'classnames';
+import '../styles/DefaultEditor.css';
 
 const TiPencil = require('react-icons/lib/ti/pencil');
 const avatar = require('../assets/avatar.svg');

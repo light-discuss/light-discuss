@@ -6,40 +6,45 @@ import '../styles/CommentList.css';
 import { RootState } from '../store/index';
 import { ActionCreators } from '../store/comment/reducer';
 import CommentItem from './CommentItem';
-import DefaultEditor from './DefaultEditor';
+// import DefaultEditor from './DefaultEditor';
 
 const mapStateToProps = (state: RootState) => ({
-    isDefaultEditorFocus: state.comment.isDefaultEditorFocus,
-    inputValues: state.comment.inputValues
-})
+    comments: state.comment.comments
+});
 
-const dispatchToProps = {
-    changeDefaultEditorFocused: ActionCreators.ChangeDefaultEditorFocused.create,
-    changeDefaultInputValues: ActionCreators.ChangeDefaultInputValues.create,
-}
+const mapDispatchToProps = {
+    loadCommentList: ActionCreators.LoadCommentList.create
+};
 
 const stateProps = returntypeof(mapStateToProps);
-type Props = typeof stateProps & typeof dispatchToProps;
+type Props = typeof stateProps & typeof mapDispatchToProps;
 type State = {};
 
 class CommentList extends React.Component<Props, State> {
+    componentDidMount() {
+        const { loadCommentList } = this.props;
+        loadCommentList();
+    }
+
     render() {
+        const { comments } = this.props;
+
         return (
             <div className="CommentList">
-                <CommentItem>
-                    <CommentItem isReplyComment={true}/>
-                    <CommentItem isReplyComment={true}/>
-                    <DefaultEditor isReplyEditor={true} onClose={this.handleEditorClose}/>
-                </CommentItem>
+                {comments.map(comment => (
+                    <CommentItem key={comment.id} comment={comment}>
+                        {comment.replyComments != null
+                            ? comment.replyComments.map(replyComment => (
+                                  <CommentItem key={replyComment.id} comment={replyComment} />
+                              ))
+                            : undefined}
+                    </CommentItem>
+                ))}
             </div>
         );
     }
 
-    handleEditorClose = () => {
-
-    }
+    handleEditorClose = () => {};
 }
 
-export default connect(
-    mapStateToProps, dispatchToProps
-)(CommentList);
+export default connect(mapStateToProps, mapDispatchToProps)(CommentList);
