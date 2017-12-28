@@ -20,10 +20,4 @@
         <appender-ref ref="jpalogfile"/>
     </logger>
 
-    <logger name="org.h2" additivity="false" level="trace">
-        <appender-ref ref="jpalogfile"/>
-    </logger>
-    <logger name="org.apache.openjpa" additivity="false" level="trace">
-        <appender-ref ref="jpalogfile"/>
-    </logger>
 </included>

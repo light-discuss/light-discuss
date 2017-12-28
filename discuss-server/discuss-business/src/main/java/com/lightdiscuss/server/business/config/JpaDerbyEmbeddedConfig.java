@@ -1,7 +1,6 @@
 package com.lightdiscuss.server.business.config;
 
 import com.lightdiscuss.server.business.support.DatabaseConfigProfile;
-import org.apache.commons.dbcp2.BasicDataSource;
 import org.hibernate.dialect.DerbyTenSevenDialect;
 import org.hibernate.dialect.Dialect;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +31,7 @@ import static org.hibernate.cfg.AvailableSettings.*;
 @Profile(DatabaseConfigProfile.DERBY_EMBEDDED)
 @Configuration
 @PropertySource(value = "classpath:/META-INF/spring/derby-embedded.properties")
-public class JpaDerbyEmbeddedConfig extends JpaCommonConfig{
+public class JpaDerbyEmbeddedConfig extends AbstractJpaCommonConfig {
 
     @Autowired
     Environment environment;
@@ -43,25 +42,6 @@ public class JpaDerbyEmbeddedConfig extends JpaCommonConfig{
     @Bean
     public String derbyDropUrl(){
         return databaseDropUrl;
-    }
-
-    @Override
-    @Bean(name="dataSource")
-    public DataSource dataSource() {
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName(getDriverClassName());
-        dataSource.setUrl(getUrl());
-        dataSource.setUsername(getUser());
-        dataSource.setPassword(getPassword());
-        dataSource.setValidationQuery(getDatabaseValidationQuery());
-        dataSource.setTestOnBorrow(true);
-        dataSource.setTestOnReturn(true);
-        dataSource.setTestWhileIdle(true);
-        dataSource.setTimeBetweenEvictionRunsMillis(1800000);
-        dataSource.setNumTestsPerEvictionRun(3);
-        dataSource.setMinEvictableIdleTimeMillis(1800000);
-        return dataSource;
-
     }
 
     @Override

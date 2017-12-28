@@ -21,7 +21,7 @@ import java.util.List;
  * @date: 2017/12/8
  * @description:
  */
-//@ContextConfiguration(classes= {JpaDerbyEmbeddedConfig.class, TestConfig.class})
+//@ContextConfiguration(classes= {AbstractJpaDerbyEmbeddedConfig.class, TestConfig.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = BusinessApplication.class)
 @ActiveProfiles("derby")

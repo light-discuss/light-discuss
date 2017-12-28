@@ -1,5 +1,6 @@
 package com.lightdiscuss.server.business.config;
 
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.hibernate.dialect.Dialect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,9 +27,9 @@ import java.util.Properties;
 @Configurable
 @EnableJpaRepositories("com.lightdiscuss.server.business.repository")
 @EntityScan("com.lightdiscuss.common.model")
-public abstract class JpaCommonConfig {
+public abstract class AbstractJpaCommonConfig {
 
-    private static final Logger logger = LoggerFactory.getLogger(JpaCommonConfig.class);
+    private static final Logger logger = LoggerFactory.getLogger(AbstractJpaCommonConfig.class);
     public static final String UNDEFINED = "**UNDEFINED**";
     public static final String CONNECTION_CHAR_SET = "hibernate.connection.charSet";
     public static final String VALIDATOR_APPLY_TO_DDL = "hibernate.validator.apply_to_ddl";
@@ -40,8 +41,22 @@ public abstract class JpaCommonConfig {
 
     private static final String entityPackage = "com.lightdiscuss.common.model";
 
-    @Bean
-    public abstract DataSource dataSource();
+    @Bean(name="dataSource")
+    public DataSource dataSource(){
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setDriverClassName(getDriverClassName());
+        dataSource.setUrl(getUrl());
+        dataSource.setUsername(getUser());
+        dataSource.setPassword(getPassword());
+        dataSource.setValidationQuery(getDatabaseValidationQuery());
+        dataSource.setTestOnBorrow(true);
+        dataSource.setTestOnReturn(true);
+        dataSource.setTestWhileIdle(true);
+        dataSource.setTimeBetweenEvictionRunsMillis(1800000);
+        dataSource.setNumTestsPerEvictionRun(3);
+        dataSource.setMinEvictableIdleTimeMillis(1800000);
+        return dataSource;
+    }
 
 
     @Bean
