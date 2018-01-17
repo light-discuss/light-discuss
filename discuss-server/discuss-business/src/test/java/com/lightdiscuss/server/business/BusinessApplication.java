@@ -4,8 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.test.context.ActiveProfiles;
 
 /**
  * @author: kevin
@@ -13,10 +12,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * @description:
  */
 @SpringBootApplication
-@Configuration
 @ComponentScan(basePackages = "com.lightdiscuss.server.business")
-@EnableJpaRepositories(basePackages = "com.lightdiscuss.server.business.repository")
 @EnableConfigurationProperties
+@ActiveProfiles("derby")
 public class BusinessApplication {
     public static void main(String[] args) {
         SpringApplication.run(BusinessApplication.class, args);

@@ -1,4 +1,4 @@
-package com.lightdiscuss.common.model;
+package com.lightdiscuss.common.entity;
 
 public class Foo {
 

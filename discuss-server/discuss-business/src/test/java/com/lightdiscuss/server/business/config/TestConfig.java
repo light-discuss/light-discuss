@@ -1,6 +1,6 @@
 package com.lightdiscuss.server.business.config;
 
-import com.lightdiscuss.common.model.Person;
+import com.lightdiscuss.common.entity.Person;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

@@ -2,7 +2,6 @@ package com.lightdiscuss.server.business.config;
 
 import com.lightdiscuss.server.business.support.DatabaseConfigProfile;
 import org.hibernate.dialect.Dialect;
-import org.hibernate.dialect.MySQLDialect;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
@@ -19,6 +18,6 @@ public class JpaMysqlConfig extends AbstractJpaCommonConfig {
 
     @Override
     protected Class<? extends Dialect> getDatabaseDialect() {
-        return MySQLDialect.class;
+        return org.hibernate.dialect.MySQL5InnoDBDialect.class;
     }
 }

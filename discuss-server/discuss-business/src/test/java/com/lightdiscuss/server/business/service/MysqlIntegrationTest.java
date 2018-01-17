@@ -2,38 +2,32 @@ package com.lightdiscuss.server.business.service;
 
 import com.lightdiscuss.common.entity.Person;
 import com.lightdiscuss.server.business.BusinessApplication;
-import org.junit.AfterClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.sql.DriverManager;
 import java.util.List;
+
 
 /**
  * @author: kevin
- * @date: 2017/12/8
+ * @date: 2018/1/2
  * @description:
  */
-//@ContextConfiguration(classes= {AbstractJpaDerbyEmbeddedConfig.class, TestConfig.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = BusinessApplication.class)
-public class DerbyIntegrationTest {
+public class MysqlIntegrationTest {
+
 
     private static final Logger logger = LoggerFactory
             .getLogger(DerbyIntegrationTest.class);
 
     @Autowired
     PersonService personService;
-
-    @Autowired
-    @Qualifier("derbyDropUrl")
-    private static String derbyDropUrl;
 
     @Test
     public void testMarkerMethod() {
@@ -50,15 +44,4 @@ public class DerbyIntegrationTest {
 
 
     }
-
-    @AfterClass
-    public static void afterClass() {
-        logger.info("Dropping DERBY EMBEDDED Database");
-        try {
-            DriverManager.getConnection(derbyDropUrl);
-        } catch (Exception ignored) {
-        }
-    }
-
-
 }

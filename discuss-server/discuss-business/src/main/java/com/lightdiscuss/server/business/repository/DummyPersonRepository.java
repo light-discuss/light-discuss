@@ -1,6 +1,6 @@
 package com.lightdiscuss.server.business.repository;
 
-import com.lightdiscuss.common.model.Person;
+import com.lightdiscuss.common.entity.Person;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

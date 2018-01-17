@@ -1,6 +1,6 @@
 package com.lightdiscuss.server.business.service;
 
-import com.lightdiscuss.common.model.Person;
+import com.lightdiscuss.common.entity.Person;
 
 import java.util.List;
 

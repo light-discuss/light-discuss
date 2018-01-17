@@ -1,6 +1,6 @@
 package com.lightdiscuss.server.business.service.impl;
 
-import com.lightdiscuss.common.model.Person;
+import com.lightdiscuss.common.entity.Person;
 import com.lightdiscuss.server.business.repository.PersonRepository;
 import com.lightdiscuss.server.business.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;

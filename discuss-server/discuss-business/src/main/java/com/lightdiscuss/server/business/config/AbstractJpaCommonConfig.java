@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -26,7 +25,6 @@ import java.util.Properties;
  */
 @Configurable
 @EnableJpaRepositories("com.lightdiscuss.server.business.repository")
-@EntityScan("com.lightdiscuss.common.model")
 public abstract class AbstractJpaCommonConfig {
 
     private static final Logger logger = LoggerFactory.getLogger(AbstractJpaCommonConfig.class);
@@ -39,7 +37,7 @@ public abstract class AbstractJpaCommonConfig {
     @Autowired
     Environment environment;
 
-    private static final String entityPackage = "com.lightdiscuss.common.model";
+    private static final String entityPackage = "com.lightdiscuss.common.entity";
 
     @Bean(name="dataSource")
     public DataSource dataSource(){

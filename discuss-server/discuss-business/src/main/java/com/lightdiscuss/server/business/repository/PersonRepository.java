@@ -1,6 +1,6 @@
 package com.lightdiscuss.server.business.repository;
 
-import com.lightdiscuss.common.model.Person;
+import com.lightdiscuss.common.entity.Person;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
