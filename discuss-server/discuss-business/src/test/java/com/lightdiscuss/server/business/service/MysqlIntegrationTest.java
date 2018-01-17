@@ -41,7 +41,5 @@ public class MysqlIntegrationTest {
 
         List<Person> list = personService.allPeople();
         logger.info("people size ====={}",list.size());
-
-
     }
 }
